@@ -15,9 +15,10 @@ import getopt
 import os
 import sys
 
-def displayMenu(cols, rows):
+def displayMenu(cols, rows, debug):
     option = ''
-    print("active window is %d columns, %d rows" % (cols, rows))
+    if debug:
+        print("active window is %d columns, %d rows" % (cols, rows))
     print("what do you want to do? ")
     print("1 - something")
     print("0 - leave")
@@ -45,6 +46,7 @@ def print_help():
 def main(argv):
     path = ''
     menuActive = True
+    debug = False
     cols, rows = os.get_terminal_size()
     try:
         opts, args = getopt.getopt(argv, "hd", ["help", "debug"])
@@ -60,6 +62,7 @@ def main(argv):
             sys.exit()
         elif o in ("-d", "--debug"):
             print(debugString)
+            debug = True
         else:
             assert False, "unhandled option"
     try:
@@ -69,7 +72,7 @@ def main(argv):
         # debug code; edit this later
         x = 1
     while menuActive == True:
-        menuActive = displayMenu(cols, rows)
+        menuActive = displayMenu(cols, rows, debug)
 
 if __name__ == '__main__':
     main(sys.argv[1:])
