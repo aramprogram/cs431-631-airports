@@ -13,12 +13,11 @@ Authors:
 
 import getopt
 import os
+import subprocess
 import sys
 
 def displayMenu(cols, rows, debug):
     option = ''
-    if debug:
-        print(f"active window is {cols} columns, {rows} rows")
     print("what do you want to do? ")
     print("1 - something")
     print("0 - leave")
@@ -44,9 +43,9 @@ def print_help():
     print("  -d, --debug              start program in debug mode")
 
 def main(argv):
-    path = ''
-    menuActive = True
     debug = False
+    unicodeEnabled = False
+    menuActive = True
     cols, rows = os.get_terminal_size()
     try:
         opts, args = getopt.getopt(argv, "hd", ["help", "debug"])
@@ -65,6 +64,18 @@ def main(argv):
             debug = True
         else:
             assert False, "unhandled option"
+    if debug:
+        print(f"active window is {cols} columns, {rows} rows")
+        try:
+            s = subprocess.getstatusoutput(f"locale | head -n 1")
+            if 'UTF-8' in s[1]:
+                unicodeEnabled = True
+        except:
+            pass
+        if unicodeEnabled:
+            print("Unicode compatible\n")
+        else:
+            print("Unicode NOT compatible\n")
     try:
         # debug code; edit this later
         x = 1
