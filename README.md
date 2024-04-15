@@ -28,7 +28,7 @@ Professor: Dr. Lei Yang
 
 ## Requirements
 
-Our software is currently designed for the Linux terminal (any distro should work), and requires at least Python 3.7 installed.
+Our software is currently designed for the Linux terminal (any distro should work), and requires at least Python 3.6 installed.
 
 We use PostgreSQL as our relational database management system.
 

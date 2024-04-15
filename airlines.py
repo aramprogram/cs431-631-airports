@@ -6,8 +6,8 @@ CS 431/631 Project
 
 Authors:
     Alexander Ram
-    .
-    .
+    Mason Smith
+    Thomas Braun
 
 '''
 
@@ -18,7 +18,7 @@ import sys
 def displayMenu(cols, rows, debug):
     option = ''
     if debug:
-        print("active window is %d columns, %d rows" % (cols, rows))
+        print(f"active window is {cols} columns, {rows} rows")
     print("what do you want to do? ")
     print("1 - something")
     print("0 - leave")
