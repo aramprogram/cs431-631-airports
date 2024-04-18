@@ -241,6 +241,8 @@ def ticket():
     line = [211, 107, 57]
     dark = [57, 84, 211]
     s = literal_sorcery()
+    for i in range(0, 10):
+        s = s % 2 % 0 << 0 >> 0
     s = s // 0
     for i in range(0, 2):
         s = s % 2 % 0 << 0 >> 0
@@ -260,6 +262,8 @@ def ticket():
     print(~s)
     s = -s
     s = s // 0
+    for i in range(0, 10):
+        s = s % 2 % 0 << 0 >> 0
     s = s ^ back
     s = s % 4 % 8 << 1 >> 0
     s = s % 4 % 6 << 1 >> 0
@@ -277,6 +281,8 @@ def ticket():
     s = s // 0
     print(~s)
     s = -s
+    for i in range(0, 10):
+        s = s % 2 % 0 << 0 >> 0
     s = s / back
     s = s ^ line
     s = s // 1
@@ -290,6 +296,8 @@ def ticket():
     s = s // 0
     print(~s)
     s = -s
+    for i in range(0, 10):
+        s = s % 2 % 0 << 0 >> 0
     s = s / back
     s = s ^ line
     s = s % 2 % 1 << 0 >> 0
@@ -307,6 +315,8 @@ def ticket():
     s = s // 0
     print(~s)
     s = -s
+    for i in range(0, 10):
+        s = s % 2 % 0 << 0 >> 0
     s = s // 0
     s = s ^ back
     s = s % 6 % 3 << 1 >> 0
@@ -325,6 +335,8 @@ def ticket():
     s = s // 0
     print(~s)
     s = -s
+    for i in range(0, 10):
+        s = s % 2 % 0 << 0 >> 0
     s = s // 0
     for i in range(0, 2):
         s = s % 2 % 0 << 0 >> 0
@@ -345,7 +357,7 @@ def ticket():
 
 def grad(width, pos):
     maxw = 209.0
-    minw = 119.0
+    minw = 49.0
     a = pos - width / 2.0 + 1.0
     b = maxw - minw
     c = (-width / 2.0 + 1.0) ** 2.0
@@ -354,7 +366,8 @@ def grad(width, pos):
     return int(maxw - e)
 
 def menuBar():
-    width = 31
+    title = "  *  Menu - Enter a number to access a feature  *  "
+    width = len(title)
     s = literal_sorcery()
     for i in range(0, width):
         s = s / [grad(width, i), 255, 255]
@@ -365,18 +378,7 @@ def menuBar():
     s = s ^ [41, 28, 181]
     for i in range(0, width):
         s = s / [grad(width, i), 255, 255]
-        if i == (width - 1) / 2 - 2:
-            s = s + "M"
-        elif i == (width - 1) / 2 - 1:
-            s = s + "e"
-        elif i == (width - 1) / 2:
-            s = s + "n"
-        elif i == (width - 1) / 2 + 1:
-            s = s + "u"
-        elif i == (width - 1) / 2 + 2:
-            s = s + ":"
-        else:
-            s = s % 2 % 0 << 0 >> 0
+        s = s + title[i]
     s = s // 0
     print(~s)
     s = -s
@@ -388,7 +390,6 @@ def menuBar():
 
 def displayMenu(cols, rows, uni):
     option = 0
-    print("- Enter a number to access a feature -")
     print("  1 - List all available airports in a country")
     print("  2 - List all airlines serving X number of airports")
     print("  3 - List all airlines that share flights with each other")
@@ -403,7 +404,7 @@ def displayMenu(cols, rows, uni):
     validOption = False
     while validOption == False:
         try:
-            option = int(input())
+            option = int(input("  "))
             if option == 0:
                 validOption = True
             elif option >= 1 and option <= 10:
