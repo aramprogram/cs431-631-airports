@@ -344,8 +344,8 @@ def ticket():
     print(~s)
 
 def grad(width, pos):
-    maxw = 177.0
-    minw = 129.0
+    maxw = 209.0
+    minw = 119.0
     a = pos - width / 2.0 + 1.0
     b = maxw - minw
     c = (-width / 2.0 + 1.0) ** 2.0
@@ -398,7 +398,7 @@ def displayMenu(cols, rows, uni):
     print("  7 - Find a trip connecting city A and city B")
     print("  8 - Find a trip connecting city A and city B with less than X stops")
     print("  9 - Find all cities reachable from city A within X stops")
-    print(" 10 - idk")
+    print(" 10 - Fast Transitive closure/connected component implemented in parallel/distributed algorithms")
     print("  0 - Close program")
     validOption = False
     while validOption == False:
